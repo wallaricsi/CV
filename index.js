@@ -22,9 +22,37 @@ function mail() {
     filename:     'CV_Schved_Gabor_'+cdate+'.pdf'};
 
   function makePDF() {
+    let main_tab = document.getElementById("main-tab")
+    main_tab.parentNode.removeChild(main_tab);
+    let reach = document.getElementById("reachable")
+    reach.removeAttribute('aria-labelledby');
+    reach.removeAttribute('role');
+    reach.removeAttribute('class');
+    reach.removeAttribute('id');
+    let contact = document.getElementById("contact")
+    contact.removeAttribute('aria-labelledby');
+    contact.removeAttribute('role');
+    contact.removeAttribute('class');
+    contact.removeAttribute('id');
+    let profile = document.getElementById("profile")
+    profile.removeAttribute('aria-labelledby');
+    profile.removeAttribute('role');
+    profile.removeAttribute('class');
+    profile.removeAttribute('id');
     let element = document.getElementById("pdf");
     html2pdf().set(opt).from(element).save()
+    //document.location.reload();
+    //window.location.reload();
+    setTimeout(() => {
+      document.location.reload();
+    }, 2000);
+
   }
+
+
+
+
+  
 
 
 // DARK MODE 
